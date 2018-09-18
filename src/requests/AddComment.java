@@ -37,10 +37,27 @@ public class AddComment extends HttpServlet {
 		
 		out.println("<h1>Add Comment</h1>");
 		
+		String name = request.getParameter("name");
+		if (name == null)
+			name = "";
+		
+		String message = request.getParameter("message");
+		message = message == null ? "" : message;
+		
+		
 		out.println("<form action=\"AddComment\" method=\"post\">");
-		out.println("	Name: <input type=\"text\" name=\"name\"> <br>");
-		out.println("	Message: <br>");
-		out.println("	<textarea name=\"message\"></textarea> <br>");
+		
+		out.println("	Name: <input type=\"text\" name=\"name\" value=\"" + name + "\"> <br>");
+		
+		if (request.getAttribute("nameError") != null)
+			out.println("   <p class=\"text-danger\">Please enter a name</p>");
+		
+		out.println("	Message: <br>");		
+		out.println("	<textarea name=\"message\">" + message + "</textarea> <br>");
+		
+		if (request.getAttribute("messageError") != null)
+			out.println("   <p class=\"text-danger\">Please enter a message</p>");
+		
 		out.println("	<input type=\"submit\" name=\"submitBtn\" value=\"Add Comment\">");
 		out.println("</form>");
 				
@@ -51,15 +68,41 @@ public class AddComment extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// Read the name and the message that was submitted by the form
-		String name = request.getParameter("name");
-		String message = request.getParameter("message");
 		
-		// get a reference to the array list of guest book entries
-		ArrayList<GuestBookEntry> guestbookEntries = (ArrayList<GuestBookEntry>) getServletContext().getAttribute("guestbookEntries");
-		
-		// Create a new entry and add it to the guestbook
-		guestbookEntries.add(new GuestBookEntry(name, message));
+		if (request.getParameter("submitBtn") != null) {
+			
+			// Read the name and the message that was submitted by the form
+			String name = request.getParameter("name");
+			String message = request.getParameter("message");
+			
+			boolean isValidName = name != null && name.trim().length() > 0;
+			boolean isValidMessage = message != null && message.trim().length() > 0;
+			
+			
+			// Add new entry to the guest book
+			if (isValidName && isValidMessage) {
+				// get a reference to the array list of guest book entries
+				ArrayList<GuestBookEntry> guestbookEntries = (ArrayList<GuestBookEntry>) getServletContext().getAttribute("guestbookEntries");
+				
+				// Create a new entry and add it to the guestbook
+				guestbookEntries.add(new GuestBookEntry(name, message));
+			} 
+			else {
+				
+				// Problem with the name?
+				if (!isValidName)
+					request.setAttribute("nameError", "Invalid Name");
+			
+				if (!isValidMessage)
+					request.setAttribute("messageError", "Invalid Message");
+				
+				doGet(request, response);
+				return;
+			}
+			
+			
+			
+		}
 		
 		// Redirect the User back to the main guestbook page
 		response.sendRedirect("GuestBook");

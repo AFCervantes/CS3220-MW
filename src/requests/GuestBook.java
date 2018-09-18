@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.GuestBookEntry;
 
 
-@WebServlet("/requests/GuestBook")
+@WebServlet(urlPatterns= {"/requests/GuestBook"}, loadOnStartup=1)
 public class GuestBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -36,6 +36,29 @@ public class GuestBook extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// Get the array list of guest book entries from the application scope
+		ArrayList<GuestBookEntry> guestbookEntries = (ArrayList<GuestBookEntry>) getServletContext().getAttribute("guestbookEntries");
+				
+		
+		// Check to see if the form was submitted
+		if (request.getParameter("searchBtn") != null) {
+			String searchQuery = request.getParameter("searchQuery");
+			String searchType = request.getParameter("searchType");
+			
+			if (searchType.equals("ID")) {
+				int id = Integer.parseInt(searchQuery);
+				
+				ArrayList<GuestBookEntry> searchResults = new ArrayList<GuestBookEntry>();
+				for(GuestBookEntry entry : guestbookEntries) {
+					if (entry.getId() == id)
+						searchResults.add(entry);
+				}
+				
+				guestbookEntries = searchResults;
+			}
+			
+		}
+		
 		// Set my content type
 		response.setContentType("text/html");
 		
@@ -55,6 +78,16 @@ public class GuestBook extends HttpServlet {
 		
 		out.println("<h1>Guest Book</h1>");
 		
+		out.println("<form action=\"GuestBook\" method=\"get\">");
+		out.println("  <input type=\"text\" name=\"searchQuery\">");
+		out.println("  <select name=\"searchType\">");
+		out.println("    <option>ID</option>");
+		out.println("    <option>Name</option>");
+		out.println("    <option>Message</option>");
+		out.println("  </select>");
+		out.println("  <input type=\"submit\" name=\"searchBtn\" value=\"Search\">");
+		out.println("</form>");
+		
 		// Display a table of all guest book entries
 		out.println("<table class=\"table table-bordered table-striped table-hover\">");
 		out.println("  <tr>");
@@ -63,8 +96,6 @@ public class GuestBook extends HttpServlet {
 		out.println("    <th>Actions</th>");
 		out.println("  </tr>");
 		
-		// Get the array list of guest book entries from the application scope
-		ArrayList<GuestBookEntry> guestbookEntries = (ArrayList<GuestBookEntry>) getServletContext().getAttribute("guestbookEntries");
 		
 		// Iterate over all guest book entries, and display one row per entry in my table
 		for( GuestBookEntry entry : guestbookEntries ) {

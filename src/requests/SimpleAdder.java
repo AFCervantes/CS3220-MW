@@ -34,12 +34,25 @@ public class SimpleAdder extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=\"container\">");
 		
+		// Read the values of the num1 and num2 request parameters
+		// Remember, the values are read as STRINGS
 		String strNum1 = request.getParameter("num1");
 		String strNum2 = request.getParameter("num2");
 		
-		int sum = Integer.parseInt(strNum1) + Integer.parseInt(strNum2);
+		// Validate the input
+			
+		try {
+			int sum = Integer.parseInt(strNum1) + Integer.parseInt(strNum2);
+			out.println(strNum1 + " + " + strNum2 + " = " + sum);
+		} catch (Exception e) {		
+			out.println("Please specify two integral values");
+		}
 		
-		out.println(strNum1 + " + " + strNum2 + " = " + sum);
+		out.println("<a href=\"../SimpleAdder.html\">Add Again</a>");
+		
+		
+		
+		
 		
 		out.println("</div>");
 		out.println("</body>");
