@@ -1,4 +1,4 @@
-package requests;
+package responses;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/requests/SimpleAdder")
-public class SimpleAdder extends HttpServlet {
+@WebServlet("/responses/Countdown")
+public class Countdown extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
+ 
+	int count = 5;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// Set my content type
@@ -28,32 +29,24 @@ public class SimpleAdder extends HttpServlet {
 		out.println("<html lang=\"en\">");
 		out.println("<head>");
 		out.println("    <meta charset=\"UTF-8\">");
-		out.println("    <title>Simple Adder</title>");
+		out.println("    <title>Document</title>");
 		out.println("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<div class=\"container\">");
 		
-		// Read the values of the num1 and num2 request parameters
-		// Remember, the values are read as STRINGS
-		String strNum1 = request.getParameter("num1");
-		String strNum2 = request.getParameter("num2");
+		out.println("<h1>Countdown</h1>");
 		
-		// Validate the input
-			
-		try {
-			int sum = Integer.parseInt(strNum1) + Integer.parseInt(strNum2);
-			out.println(strNum1 + " + " + strNum2 + " = " + sum);
-		} catch (Exception e) {		
-			//out.println("Please specify two integral values");
-			response.sendRedirect("../SimpleAdder.html");
-			return;
+		if (count > 0) {
+			out.println("<h3>T-Minus " + count + " second(s) and counting...");
+			--count;
+			//response.setHeader("Refresh", "1");
+			response.setIntHeader("Refresh", 1);
 		}
-		
-		out.println("<a href=\"../SimpleAdder.html\">Add Again</a>");
-		
-		
-		
+		else {
+			out.println("<h3 class=\"text-danger\">Blast Off!</h3>");
+			count = 5;
+		}
 		
 		
 		out.println("</div>");
@@ -61,9 +54,7 @@ public class SimpleAdder extends HttpServlet {
 		out.println("</html>");		
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
