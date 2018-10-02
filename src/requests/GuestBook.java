@@ -115,6 +115,10 @@ public class GuestBook extends HttpServlet {
 		
 		out.println("<a class=\"btn btn-primary\" href=\"AddComment\">Add a Comment</a>");
 		
+		out.println("<a class=\"btn btn-info\" href=\"../cookies/AddCommentWithCookies\">Add a Comment (with Cookies)</a>");
+		
+		
+		
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");		
