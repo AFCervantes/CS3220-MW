@@ -15,3 +15,4 @@
 - [2018-09-17](http://albertcervantes.com/cs3220/lectures/cs3220-2018-09-17-mw.mp4)
 - [2018-09-24](http://albertcervantes.com/cs3220/lectures/cs3220-2018-09-24-mw.mp4)
 - [2018-09-26](http://albertcervantes.com/cs3220/lectures/cs3220-2018-09-26-mw.mp4)
+- [2018-10-01](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-01-mw.mp4)
