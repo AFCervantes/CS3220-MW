@@ -117,8 +117,10 @@ public class GuestBook extends HttpServlet {
 		
 		out.println("<a class=\"btn btn-info\" href=\"../cookies/AddCommentWithCookies\">Add a Comment (with Cookies)</a>");
 		
+		out.println("<a class=\"btn btn-warning\" href=\"../sessions/AddCommentWithSessions\">Add a Comment (with Sessions)</a>");
 		
 		
+		//JSESSIONID	18DD3334D388CA09D6BA50DBCEACB049	localhost	/cs3220stu120	Session	42 B	✓		
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");		
