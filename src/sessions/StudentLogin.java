@@ -71,7 +71,7 @@ public class StudentLogin extends HttpServlet {
 		String error = (String) request.getAttribute("error");
 		
 		if (error != null)
-			out.println("<p class=\"text-danger\">" + request.getAttribute("error") + "</p>");
+			out.println("<p class=\"text-danger\">" + error + "</p>");
 		
 		out.println("<form action=\"Login\" method=\"post\">");
 		out.println("  E-mail: <input type=\"text\" name=\"email\"><br>");
@@ -99,7 +99,7 @@ public class StudentLogin extends HttpServlet {
 				// Get a reference to the session
 				HttpSession session = request.getSession();
 				
-				// Add the User to the SESSIONS Scope
+				// Add the Student to the SESSION Scope
 				session.setAttribute("currentStudent", student);
 				
 				// Send the student, who is now "Logged In", to the Student-Only page
