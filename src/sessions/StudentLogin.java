@@ -16,7 +16,7 @@ import org.eclipse.jdt.internal.compiler.ast.Assignment;
 
 import models.Student;
 
-@WebServlet("/students/Login")
+@WebServlet(urlPatterns = {"/students/Login"}, loadOnStartup = 1)
 public class StudentLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
