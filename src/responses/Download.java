@@ -27,8 +27,8 @@ public class Download extends HttpServlet {
         // as a long, which we need to convert to a String.
         response.setContentType( "image/jpg" );
         response.setHeader( "Content-Length", "" + file.length() );
-//        response.setHeader( "Content-Disposition",
-//            "inline; filename=FlockOf.jpg" );
+        response.setHeader( "Content-Disposition",
+            "inline; filename=FlockOf.jpg" );
 
         // Binary files need to read/written in bytes.
         FileInputStream in = new FileInputStream( file );
