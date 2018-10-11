@@ -21,7 +21,8 @@ public class ToggleDone extends HttpServlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		ArrayList<Todo> todos = (ArrayList<Todo>) getServletContext().getAttribute("todos");
+//		ArrayList<Todo> todos = (ArrayList<Todo>) getServletContext().getAttribute("todos");
+		ArrayList<Todo> todos = (ArrayList<Todo>) request.getSession().getAttribute("todos");
 		
 		for (Todo todo : todos)
 			if (todo.getId() == id) {
