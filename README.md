@@ -18,3 +18,6 @@
 - [2018-10-01](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-01-mw.mp4)
 - [2018-10-03](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-03-mw.mp4)
 - [2018-10-08](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-08-mw.mp4)
+- [2018-10-10](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-10-mw.mp4)
+- [2018-10-22](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-22-mw.mp4) Introduction to JSP
+- [2018-10-24](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-24-mw.mp4) More JSP and Java Beans
