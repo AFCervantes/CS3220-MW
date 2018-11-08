@@ -21,3 +21,4 @@
 - [2018-10-10](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-10-mw.mp4)
 - [2018-10-22](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-22-mw.mp4) Introduction to JSP
 - [2018-10-24](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-24-mw.mp4) More JSP and Java Beans
+- [2018-10-29](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-29-mw.mp4) Expression Language (EL)
