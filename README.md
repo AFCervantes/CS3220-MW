@@ -22,3 +22,5 @@
 - [2018-10-22](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-22-mw.mp4) Introduction to JSP
 - [2018-10-24](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-24-mw.mp4) More JSP and Java Beans
 - [2018-10-29](http://albertcervantes.com/cs3220/lectures/cs3220-2018-10-29-mw.mp4) Expression Language (EL)
+- [2018-11-05](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-06-ttr.mp4) Introduction to JSTL
+- [2018-11-07](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-07-mw.mp4) Introduction to MVC
