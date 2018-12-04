@@ -28,5 +28,5 @@
 - [2018-11-14](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-14-mw.mp4) Introduction to Databases
 - 2018-11-19 - Holiday
 - 2018-11-21 - Holiday
-- [2018-11-26](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-14-mw.mp4) Introduction to JDBC
-- [2018-11-28](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-14-mw.mp4) Introduction to JSTL SQL
+- [2018-11-26](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-26-mw.mp4) Introduction to JDBC
+- [2018-11-28](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-28-mw.mp4) Introduction to JSTL SQL
