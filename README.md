@@ -30,3 +30,5 @@
 - 2018-11-21 - Holiday
 - [2018-11-26](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-26-mw.mp4) Introduction to JDBC
 - [2018-11-28](http://albertcervantes.com/cs3220/lectures/cs3220-2018-11-28-mw.mp4) Introduction to JSTL SQL
+- [2018-12-03](http://albertcervantes.com/cs3220/lectures/cs3220-2018-12-03-mw.mp4) Semester Recap, Design Problem, and Sample Final
+- [2018-12-05](http://albertcervantes.com/cs3220/lectures/cs3220-2018-12-05-mw.mp4) Practice Final #2
