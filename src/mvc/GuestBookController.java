@@ -15,25 +15,24 @@ import models.GuestBookEntry;
 @WebServlet("/mvc/GuestBook")
 public class GuestBookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+       
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		
-		ArrayList<GuestBookEntry> entries = new ArrayList<GuestBookEntry>();
+		ArrayList<GuestBookEntry> guestbookEntries = new ArrayList<GuestBookEntry>();
 		
-		entries.add(new GuestBookEntry(1, "John Doe", "Hello, World!"));
-		entries.add(new GuestBookEntry(2, "Mary Jane", "Howdy!"));
-		entries.add(new GuestBookEntry(3, "Joe Boxer", "Hi!"));
+		guestbookEntries.add(new GuestBookEntry("John Doe", "Hello"));
+		guestbookEntries.add(new GuestBookEntry("Mary Jane", "Hi"));
+		guestbookEntries.add(new GuestBookEntry("Joe Boxer", "Howdy"));
 		
-		getServletContext().setAttribute("entries", entries);
+		getServletContext().setAttribute("guestbookEntries", guestbookEntries);
 	}
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher( "/WEB-INF/mvc/GuestBook.jsp" )
-				.forward(request, response );
+	
+		request.getRequestDispatcher("/WEB-INF/mvc/GuestBook.jsp").forward(request, response);
+		
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

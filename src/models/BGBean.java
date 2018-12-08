@@ -4,19 +4,17 @@ public class BGBean {
 
 	int red, green, blue;
 
-	
-	
 	public BGBean() {
 		super();
-		this.red = 255;
-		this.green = 0;
-		this.blue = 0;
+		
+		red = 255;
+		green = 0;
+		blue = 0;
 	}
 	
-
 	public int getR() {
 		return red;
-	}
+	}	
 
 	public void setR(int r) {
 		this.red = r;
@@ -37,9 +35,6 @@ public class BGBean {
 	public void setB(int b) {
 		this.blue = b;
 	}
-	
-	
-	
 	
 	
 	

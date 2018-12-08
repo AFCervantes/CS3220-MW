@@ -21,19 +21,20 @@ public class GuestBook extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		
-		// Created a local, empty array list of type Guest Book Entry
-		ArrayList<GuestBookEntry> guestbookEntries = new ArrayList<GuestBookEntry>();
-		
-		// Pre-populate my guest book with some entries
-		guestbookEntries.add( new GuestBookEntry("John Doe", "Hello, World!"));
-		guestbookEntries.add( new GuestBookEntry("Mary Jane", "Hi!"));
-		guestbookEntries.add( new GuestBookEntry("Joe Boxer", "Howdy!"));
-		
-		// Add the array list to the application scope (Servlet Context)
-		getServletContext().setAttribute("guestbookEntries", guestbookEntries);
-		
+//		// Created a local, empty array list of type Guest Book Entry
+//		ArrayList<GuestBookEntry> guestbookEntries = new ArrayList<GuestBookEntry>();
+//		
+//		// Pre-populate my guest book with some entries
+//		guestbookEntries.add( new GuestBookEntry("John Doe", "Hello, World!"));
+//		guestbookEntries.add( new GuestBookEntry("Mary Jane", "Hi!"));
+//		guestbookEntries.add( new GuestBookEntry("Joe Boxer", "Howdy!"));
+//		
+//		// Add the array list to the application scope (Servlet Context)
+//		getServletContext().setAttribute("guestbookEntries", guestbookEntries);
+//		
 	}
 	
+	// JSESSIONID	44729F1AFF42B86F687F0AC874183039	localhost	/cs3220stu120	Session	42 B	✓		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// Get the array list of guest book entries from the application scope

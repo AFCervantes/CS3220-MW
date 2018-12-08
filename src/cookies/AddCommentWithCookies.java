@@ -49,17 +49,15 @@ public class AddCommentWithCookies extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=\"container\">");
 		
-		out.println("<h1>Add Comment</h1>");
+		out.println("<h1>Add Comment <small>with Cookies</small></h1>");
 		out.println("<form action=\"AddCommentWithCookies\" method=\"post\">");		
 		
 		String name = getName(request);
 		
-		if (name == null) {
+		if (name == null)
 			out.println("	Name: <input type=\"text\" name=\"name\"> <br>");
-		}
-		else {
+		else
 			out.println("<strong>" + name + "</strong> <br>");
-		}
 		
 		out.println("	Message: <br>");		
 		out.println("	<textarea name=\"message\"></textarea> <br>");			
@@ -72,6 +70,7 @@ public class AddCommentWithCookies extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if (request.getParameter("submitBtn") != null) {
 			
 			// Read the name and the message that was submitted by the form

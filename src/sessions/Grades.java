@@ -49,6 +49,8 @@ public class Grades extends HttpServlet {
 		
 		out.println("<table class=\"table table-bordered\">");
 		
+		
+		
 		// Print the student's scores
 		ArrayList<models.Assignment> assignments = student.getAssignments();
 		

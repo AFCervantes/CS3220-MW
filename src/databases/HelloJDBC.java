@@ -54,7 +54,7 @@ public class HelloJDBC extends HttpServlet {
         	String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu120";
         	
     		String username = "cs3220stu120";
-    		String password = /* Your Password Here */ 	"";
+    		String password = "";
     	
     		// Connect to the database
     		c = DriverManager.getConnection(url, username, password);
@@ -67,8 +67,8 @@ public class HelloJDBC extends HttpServlet {
     		
     		while (rs.next()) {
     			out.println( rs.getString("name") );
-    			out.println( rs.getFloat("price") );
-    			out.println( rs.getInt("quantity"));
+    			out.println( rs.getString("price") );
+    			out.println( rs.getFloat("quantity"));
     			out.println("<hr>");
     		}
         }

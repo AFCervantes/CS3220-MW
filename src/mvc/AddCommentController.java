@@ -11,59 +11,50 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.GuestBookEntry;
 
-/**
- * Servlet implementation class AddCommentController
- */
 @WebServlet("/mvc/AddComment")
 public class AddCommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.getRequestDispatcher("/WEB-INF/mvc/AddComment.jsp")
-				.forward(request, response);
+					.forward(request, response);
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		// Read the values of name and message from the request
+		String name = request.getParameter("name");
+		String message = request.getParameter("message");
 		
-		if (request.getParameter("add") != null) {
+		boolean isValidName = name != null && name.trim().length() > 0;
+		boolean isValidMessage = message != null && message.trim().length() > 0;
+		
+		if (isValidName && isValidMessage) {
+			// Get a reference to the guest book
+			ArrayList<GuestBookEntry> guestbookEntries = (ArrayList<GuestBookEntry>) getServletContext().getAttribute("guestbookEntries");
 			
-			// Read the name and the message that was submitted by the form
-			String name = request.getParameter("name");
-			String message = request.getParameter("message");
+			// Add a new entry
+			guestbookEntries.add(new GuestBookEntry(name, message));
 			
-			boolean isValidName = name != null && name.trim().length() > 0;
-			boolean isValidMessage = message != null && message.trim().length() > 0;
+			// Redirect the User back to the main page
+			response.sendRedirect("GuestBook");
+		}
+		else {
 			
+			if (!isValidName)
+				request.setAttribute("nameError", "Please enter your name");
 			
-			// Add new entry to the guest book
-			if (isValidName && isValidMessage) {
-				// get a reference to the array list of guest book entries
-				ArrayList<GuestBookEntry> guestbookEntries = (ArrayList<GuestBookEntry>) getServletContext().getAttribute("entries");
-				
-				// Create a new entry and add it to the guestbook
-				guestbookEntries.add(new GuestBookEntry(name, message));
-			} 
-			else {
-				
-				// Problem with the name?
-				if (!isValidName)
-					request.setAttribute("nameError", "Invalid Name");
-			
-				if (!isValidMessage)
-					request.setAttribute("messageError", "Invalid Message");
-				
-				request.getRequestDispatcher("/WEB-INF/mvc/AddComment.jsp")
-					.forward(request, response);
-				return;
-			}
+			if (!isValidMessage)
+				request.setAttribute("messageError", "Please enter a message");
 			
 			
+			doGet(request, response);
+			return;
 			
 		}
 		
-		// Redirect the User back to the main guestbook page
-		response.sendRedirect("GuestBook");		
 	}
 
 }

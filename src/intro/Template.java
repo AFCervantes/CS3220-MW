@@ -13,35 +13,32 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Template")
 public class Template extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// Set my content type
 		response.setContentType("text/html");
-		
-		// Get a reference to the Print Writer
-		PrintWriter out = response.getWriter();
-		
-		// Generate our content
-		out.println("<!DOCTYPE html>");
-		out.println("<html lang=\"en\">");
-		out.println("<head>");
-		out.println("    <meta charset=\"UTF-8\">");
-		out.println("    <title>Document</title>");
-		out.println("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<div class=\"container\">");
-		
-		// Page-Specific Content Goes Here...
-		
-		out.println("</div>");
-		out.println("</body>");
-		out.println("</html>");		
+        
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html lang=\"en\">");
+        
+        out.println("<head>");
+        out.println("    <meta charset=\"UTF-8\">");
+        out.println("    <title>Document</title>");
+        out.println("     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<div class=\"container\">");
+        
+        // Page-Specific Content goes here
+        
+        out.println("</div>");
+        out.println("</body>");        
+        out.println("</html>");
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

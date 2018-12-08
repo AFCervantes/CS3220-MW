@@ -10,15 +10,26 @@
 	user="cs3220stu120"
 	password="" />
 
+<c:if test="${! empty param.setPrice}">
+    
+    <sql:update var="r">
+        update items set price = ? where name = ?
+        <sql:param value="${param.price}"/>
+        <sql:param value="${param.name}"/>
+    </sql:update>
+
+</c:if>
+
+
 <%-- query --%>
 <sql:query var="items">
 	SELECT * 
 	FROM items
-	WHERE price < ?
+	<%-- WHERE price < ?
 		AND quantity > ?
 		
 	<sql:param value="${param.price}" />
-	<sql:param value="${param.quantity}" />
+	<sql:param value="${param.quantity}" /> --%>
 	
 </sql:query>
     
@@ -34,6 +45,13 @@
 	
 	<h1>Hello SQL <small>JSTL</small></h1>
 	<table class="table table-bordered table-striped table-hover">
+	
+		<tr>
+			<c:forEach items="${items.columnNames}" var="colName">
+				<th>${colName}</th>
+			</c:forEach>
+		</tr>
+	
 	  <c:forEach items="${items.rowsByIndex}" var="row">
 	    <tr>
 		    <c:forEach items="${row}" var="col">
@@ -42,7 +60,6 @@
 		      
 		    </c:forEach>
 	    </tr>
-	    
 	  </c:forEach>
 	</table>
     

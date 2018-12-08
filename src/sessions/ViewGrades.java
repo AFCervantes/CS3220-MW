@@ -26,7 +26,7 @@ public class ViewGrades extends HttpServlet {
 		// Get the list of Students
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
 		
-		// Find the student matching the credentials entered
+		// Find the student matching the id entered
 		for (Student student : students) {
 			if (student.getId() == id) {
 				request.getSession().setAttribute("currentStudent", student);

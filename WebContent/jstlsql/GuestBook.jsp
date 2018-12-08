@@ -8,7 +8,8 @@
 	driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://cs3.calstatela.edu/cs3220stu120"
 	user="cs3220stu120"
-	password=""/>
+	password="" />
+
 
 
 <%-- query --%>

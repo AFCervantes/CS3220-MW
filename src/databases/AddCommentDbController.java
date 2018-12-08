@@ -46,7 +46,7 @@ public class AddCommentDbController extends HttpServlet {
 	        	String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu120";
 	        	
 	    		String username = "cs3220stu120";
-	    		String password = /* Your Password Here */ 	"";
+	    		String password = "";
 	    	
 	    		// Connect to the database
 	    		c = DriverManager.getConnection(url, username, password);
@@ -58,7 +58,7 @@ public class AddCommentDbController extends HttpServlet {
 //	    		String sql = "INSERT INTO `guestbook` (`id`, `name`, `message`) VALUES (NULL, '" + name + "', '" + message + "')";
 //	    		System.out.println(sql);
 //	    		int rowsAffected = stmt.executeUpdate(sql);
-//	    		
+	    		
 	    		String sql = "INSERT INTO guestbook (id, name, message) VALUES (NULL, ?, ?)";
 	    		PreparedStatement pstmt = c.prepareStatement(sql);
 	    		

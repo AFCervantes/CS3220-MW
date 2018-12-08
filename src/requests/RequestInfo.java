@@ -12,13 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RequestInfo")
 public class RequestInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
         
         PrintWriter out = response.getWriter();
-        
         out.println("<!DOCTYPE html>");
         out.println("<html lang=\"en\">");
         
@@ -32,7 +31,6 @@ public class RequestInfo extends HttpServlet {
         
 
         out.println("<table class=\"table table-bordered table-striped table-hover\">");
-        
         out.println("  <tr>");
         out.println("    <th>Header</th>");
         out.println("    <th>Value</th>");
@@ -69,7 +67,7 @@ public class RequestInfo extends HttpServlet {
         out.println("  </tr>");
         
         // Is gzip Supported?
-        String encodingHeader = request.getHeader("Accept-Encoding"); //gzip,deflate
+        String encodingHeader = request.getHeader("Accept-Encoding");
         boolean isGzipSupported = encodingHeader.indexOf("gzip") >= 0;
         
         out.println("  <tr>");
@@ -83,6 +81,7 @@ public class RequestInfo extends HttpServlet {
         out.println("</div>");
         out.println("</body>");        
         out.println("</html>");
+
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

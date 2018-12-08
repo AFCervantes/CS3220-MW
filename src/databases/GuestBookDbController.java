@@ -42,7 +42,7 @@ public class GuestBookDbController extends HttpServlet {
         	String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu120";
         	
     		String username = "cs3220stu120";
-    		String password = /* Your Password Here */ "";
+    		String password = "";
     	
     		// Connect to the database
     		c = DriverManager.getConnection(url, username, password);
@@ -65,7 +65,7 @@ public class GuestBookDbController extends HttpServlet {
     		}
     		
     		// Add the guest book arraylist to the REQUEST scope
-    		request.setAttribute("entries", guestbookEntries);
+    		request.setAttribute("guestbookEntries", guestbookEntries);
         }
         catch (SQLException e) {
         	throw new ServletException( e );

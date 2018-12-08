@@ -24,7 +24,7 @@ public class TodoServlet extends HttpServlet {
 //		todos.add(new Todo("Check an item off of my todo list"));
 //		
 //		getServletContext().setAttribute("todos", todos);
-		
+//		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,16 +54,15 @@ public class TodoServlet extends HttpServlet {
 		
 //		ArrayList<Todo> todos = (ArrayList<Todo>) getServletContext().getAttribute("todos");
 		
-		
-		// Get a reference to the session
+		// Get a reference to the Session
 		HttpSession session = request.getSession();
 		
-		// If the list of todos has not yet been created for this session, create it.
+		// Check for an existing array list of Todos. If it doesn't exist, we'll create it.
 		if (session.getAttribute("todos") == null)
 			session.setAttribute("todos", new ArrayList<Todo>());
 		
-		// Read the list of todos from the session
-		ArrayList<Todo> todos = (ArrayList<Todo>) request.getSession().getAttribute("todos");
+		// Get a reference to the array list of todos in the session scope
+		ArrayList<Todo> todos = (ArrayList<Todo>) session.getAttribute("todos");
 		
 		out.println("<table class=\"table table-hover\">");
 		
@@ -80,13 +79,15 @@ public class TodoServlet extends HttpServlet {
 				out.println("</s>");
 			
 			out.println("  </td>");
+			
+			
 			out.println("  <td>");
 			
 			out.println("	 <a class=\"btn btn-primary\" href=\"toggleDone?id=" + todo.getId() + "\">");
 			if(todo.isDone())
-				out.println("Not Complete");
+				out.println("Mark as Not Complete");
 			else
-				out.println("Complete");
+				out.println("Mark as Complete");
 			out.println("	</a>");
 							
 			out.println("  </td>");
@@ -112,7 +113,7 @@ public class TodoServlet extends HttpServlet {
 		
 		if (description != null && description.trim().length() >= 0) {
 //			ArrayList<Todo> todos = (ArrayList<Todo>) getServletContext().getAttribute("todos");
-			ArrayList<Todo> todos = (ArrayList<Todo>) request.getSession().getAttribute("todos");
+			ArrayList<Todo> todos = (ArrayList<Todo>) request.getSession().getAttribute("todos");			
 			todos.add(new Todo(description));
 		}
 		

@@ -25,6 +25,6 @@
   <li>beans[1].id: ${bb.beans[1].id}</li>
   <li>beans[1].name: ${bb.beans[1].name}</li>
 </ul>
-<p>2 + 3/2: ${2+3/2}</p>
+<h3>2 + 3/2: ${2+3/2}</h3>
 </body>
 </html>

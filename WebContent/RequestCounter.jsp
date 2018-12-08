@@ -4,16 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Request Counter</title>
+<title>Request Counter JSP</title>
 </head>
 <body>
 
+<%--
+JSP Declaration
+ --%>
 <%! static int count = 0; %>
 
+
+<%-- JSP Expression --%>
 <h1>
-	This page has been viewed <%= count %> 
+	This page has been viewed <%= count %> time(s).
 </h1>
 
+<%-- JSP Scriptlet --%>
 <% count++; %>
 
 </body>

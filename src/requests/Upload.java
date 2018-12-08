@@ -38,6 +38,7 @@ public class Upload extends HttpServlet {
             .getServletContext();
         File repository = (File) servletContext
             .getAttribute( "javax.servlet.context.tempdir" );
+        
         factory.setRepository( repository );
 
         // Create a new file upload handler
@@ -45,6 +46,7 @@ public class Upload extends HttpServlet {
 
         // Count how many files are uploaded
         int count = 0;
+        
         // The directory we want to save the uploaded files to.
         String fileDir = getServletContext().getRealPath( "/WEB-INF/uploads" );
 
@@ -52,6 +54,7 @@ public class Upload extends HttpServlet {
         try
         {
             List<FileItem> items = upload.parseRequest( request );
+            
             for( FileItem item : items )
             {
                 // If the item is not a form field - meaning it's an uploaded
@@ -63,10 +66,27 @@ public class Upload extends HttpServlet {
                     // want the file name part, which is why we first create a
                     // File object, then use File.getName() to get the file
                     // name.
+                	// /var/usr/some/temp/dir/some-file.jpg
+                	// /user/albert/3220/WEB-INF/uploads   some-file.jpg
+                	
+                	//item.getContentType();
+                	
                     String fileName = (new File( item.getName() )).getName();
                     File file = new File( fileDir, fileName );
                     item.write( file );
                     ++count;
+                    
+                    //new Photo(filename, path, contentType)
+                    
+                    
+                    // Add the photo to a collection
+                    // Get the content type from the item:  item.getContentType()
+                }
+                else {
+                	String parameterName = item.getFieldName();
+                	if (parameterName.equals("id")) {
+                		int id = Integer.parseInt( item.toString() );
+                	}
                 }
             }
 

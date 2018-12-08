@@ -8,40 +8,29 @@
 </head>
 <body>
 
-<h3>
+<%
 
-		<%
-		
-		int num1 = 0, num2 = 0;
-		
-		try{
-			String str1 = request.getParameter("num1");
-			String str2 = request.getParameter("num2");
+// Defined here for scope
+int num1;
+int num2;
 
-			num1 = Integer.parseInt( str1 );
-			num2 = Integer.parseInt( str2 );
-			
-		}catch(Exception e){
-			
-			response.sendRedirect("JspAdder.html");
-			return;
-			
-		}
-		
-		%>
+try{
+	num1 = Integer.parseInt( request.getParameter("num1"));
+	num2 = Integer.parseInt( request.getParameter("num2"));
+	
+}catch(Exception e){
+	response.sendRedirect("JspAdder.html");
+	return;
+}
 
-		The sum of 
-		
-		<%= num1 %>
-		
-		and 
-		
-		<%= num2 %>
-		
-		is: 
-		
-		<%= num1 + num2 %>
-</h3>
+%>
+
+The sum of 
+	<%= num1 %> 
+	+ 
+	<%= num2 %> 
+	= 
+	<%= num1 + num2 %>
 
 </body>
 </html>
